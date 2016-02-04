@@ -98,6 +98,11 @@ splunk:
     - 8000:8000
 ```
 
+To start Splunk listening on both tcp and udp ports
+```bash
+docker run --hostname splunk -p 8000:8000 -p 1514:1514 -p 1515:1515/udp --env SPLUNK_ADD='udp 1515' --env SPLUNK_CMD='add tcp 1514' -d splunk
+```
+
 ## Configuration
 
 ### Data Store
